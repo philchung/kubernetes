@@ -1,8 +1,12 @@
 #!/bin/sh
 
-kubectl create namespace shared-ingress
+export NAMESPACE=shared-ingress
 
-kubectl create -f https://raw.githubusercontent.com/nagypeter/kubernetes/master/ingress/nginx-default-backend-deployment.yaml
+kubectl delete namespace $NAMESPACE --ignore-not-found=true
+
+kubectl create namespace $NAMESPACE
+
+kubectl create -f https://raw.githubusercontent.com/nagypeter/kubernetes/master/ingress/nginx-default-backend-deployment.yaml -n=$NAMESPACE
 
 #kubectl create -f https://raw.githubusercontent.com/nagypeter/kubernetes/master/ingress/nginx-default-backend-service.yaml
 
