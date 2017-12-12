@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export NAMESPACE=shared-ingress
+export NAMESPACE=philchung
 
 # wait to delet resources
 sleep 15
